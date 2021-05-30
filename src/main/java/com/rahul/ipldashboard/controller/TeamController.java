@@ -1,5 +1,6 @@
 package com.rahul.ipldashboard.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.rahul.ipldashboard.model.Match;
@@ -12,9 +13,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jdk.vm.ci.meta.Local;
+
 @RestController
+@RequestMapping("/team")
 @CrossOrigin
 public class TeamController {
 
@@ -28,7 +34,7 @@ public class TeamController {
 
 
 
-    @GetMapping("/team/{teamName}")
+    @GetMapping("/{teamName}")
     public Team getTeam(@PathVariable String teamName) {
 
        Team team = this.teamRepository.findByTeamName(teamName);
@@ -38,5 +44,14 @@ public class TeamController {
        return team;
 
     }
+
+    @GetMapping("/{teamName}/matches") 
+    public List<Match> getMatchesForTeam(@PathVariable String teamName, @RequestParam int year) {
+        LocalDate startDate = LocalDate.of(year, 1, 1);
+        LocalDate endDate = LocalDate.of(year + 1, 1, 1);
+        return this.matchRepository.
+               findByTeamBetweenDates(teamName, startDate, endDate);
+
+    } 
     
 }
