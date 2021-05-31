@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useParams }  from 'react-router-dom';
-import { MatchDetatilsCard } from '../components/MatchDetailsCard';
+import { MatchDetailsCard } from '../components/MatchDetailsCard';
 import { MatchSmallCard } from '../components/MatchSmallCard';
 
 export const MatchPage = () => {
@@ -28,7 +28,7 @@ export const MatchPage = () => {
         <div className="MatchPage">
           <h1>Match Page</h1>
           {
-              matches.map(match => <MatchDetatilsCard teamName={teamName} match={match} />)
+              matches.map(match => <MatchDetailsCard teamName={teamName} match={match} />)
           }
         </div>
     );
