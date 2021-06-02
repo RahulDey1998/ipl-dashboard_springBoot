@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/team")
 @CrossOrigin
 public class TeamController {
 
@@ -30,9 +29,13 @@ public class TeamController {
         this.matchRepository = matchRepository;
     }
 
+    @GetMapping("/team")
+    public Iterable<Team> getAllTeams() {
+        return this.teamRepository.findAll();
+       
+    }
 
-
-    @GetMapping("/{teamName}")
+    @GetMapping("/team/{teamName}")
     public Team getTeam(@PathVariable String teamName) {
 
        Team team = this.teamRepository.findByTeamName(teamName);
@@ -43,7 +46,7 @@ public class TeamController {
 
     }
 
-    @GetMapping("/{teamName}/matches") 
+    @GetMapping("/team/{teamName}/matches") 
     public List<Match> getMatchesForTeam(@PathVariable String teamName, @RequestParam int year) {
         LocalDate startDate = LocalDate.of(year, 1, 1);
         LocalDate endDate = LocalDate.of(year + 1, 1, 1);
@@ -51,5 +54,7 @@ public class TeamController {
                findByTeamBetweenDates(teamName, startDate, endDate);
 
     } 
+
+    
     
 }

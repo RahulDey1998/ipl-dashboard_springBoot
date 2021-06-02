@@ -25,7 +25,7 @@ export const MatchDetailsCard = ({teamName, match}) => {
         <h3>Second Inings</h3>
         <p>{match.team2}</p>
         <h3>Man of the match</h3>
-        <p>{match.playerOfTheMatch}</p>
+        <p>{match.playerOfMatch}</p>
         <h3>Second Inings</h3>
         <p>{match.team2}</p>
         <h3>Umpires</h3>
