@@ -1,6 +1,11 @@
 .TeamGrid {
     height: 170px;
     text-align: center;
-    border: 1px solid white;
+    // border: 1px solid white;
     padding: 20px;
+    background-color: darkcyan ;
+
+    &:hover {
+        background-color: darkgoldenrod;
+    }
 }

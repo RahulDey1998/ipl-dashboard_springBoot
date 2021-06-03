@@ -6,13 +6,13 @@ import './TeamGrid.scss';
 export const TeamGrid = ({teamName}) => {
 
     return (
-        <div className="TeamGrid">
-           <h1>
-               <Link to={`/teams/${teamName}`}>
-                  {teamName}
-               </Link> 
-            </h1>
-        </div>
+        <Link to={`/teams/${teamName}`}>
+            <div className="TeamGrid">
+             <h1>
+                {teamName}
+             </h1>
+            </div>
+        </Link>
     )
     
 }

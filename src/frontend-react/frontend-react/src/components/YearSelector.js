@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './YearSelector.scss';
 
@@ -17,7 +17,7 @@ export const YearSelector = ({teamName, currentYear}) => {
         <ol className="YearSelector">
          { years.map(year => 
            <li>
-               <div className={year == currentYear ? 'currentYear' : ''}>
+               <div className={year === currentYear ? 'currentYear' : ''}>
                <Link to={`/teams/${teamName}/matches/${year}`}>{year}</Link> 
                </div>
                

@@ -36,6 +36,7 @@ public class BatchConfig {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
 
+
     @Bean
     public FlatFileItemReader<MatchInput> reader() {
         return new FlatFileItemReaderBuilder<MatchInput>().name("MatchItemReader")
@@ -46,6 +47,7 @@ public class BatchConfig {
                         setTargetType(MatchInput.class);
                     }
                 }).build();
+               
     }
 
     @Bean
@@ -78,7 +80,7 @@ public class BatchConfig {
         .<MatchInput, Match> chunk(10)
         .reader(reader())
         .processor(processor())
-        .writer(writer)
+        .writer(writer) 
         .build();
     }
 

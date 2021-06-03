@@ -1,15 +1,35 @@
 .HomePage {
 
-    .app-name {
-      font-size: 3rem;
-      margin: 30px auto;
-      text-align: center;
-    }
 
     .team-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-row-gap: 10px;
         grid-column-gap: 10px;
+    }
+
+    .header-section {
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+        
+        .app-name {
+            font-size: 3rem;
+            margin: 30px auto;
+            margin-right: 60px;
+            text-align: center;
+        }
+    }
+
+    .ipl_logo {
+        display: block;
+        width: 150px;
+        height: 100px;
+        justify-content: center;
+        align-items: center;
+
+        .ipl_logo {
+            height: 100%;
+            width: 100%;
+        }
     }
 }
